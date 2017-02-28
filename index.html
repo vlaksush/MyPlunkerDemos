@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="plunker">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>AngularJS Plunker</title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <link rel="stylesheet" href="style.css" />
+    <script data-require="angular.js@1.5.x" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.10/angular.min.js" data-semver="1.5.10"></script>
+    <script src="app.js"></script>
+  </head>
+
+  <body ng-controller="ContactController">
+    <div>
+      
+    </div>
+      <form>
+    <label>Name</label> 
+        <input type="text" name="name" ng-model="newcontact.name"/><br>
+    <label>Email</label> 
+        <input type="text" name="email" ng-model="newcontact.email"/><br>
+    <label>Phone</label> 
+        <input type="text" name="phone" ng-model="newcontact.phone"/>
+        <br/>
+        <input type="hidden" ng-model="newcontact.id" />
+     <input type="button" value="Save" ng-click="saveContact()" />
+    </form>
+<table>
+<thead> 
+<tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr ng-repeat="contact in contacts">
+    <td>{{ contact.name }}</td>
+    <td>{{ contact.email }}</td>
+    <td>{{ contact.phone }}</td>
+    <td>
+        <a  href="#" ng-click="edit(contact.id)">edit</a> | 
+        <a href="#" ng-click="delete(contact.id)">delete</a>
+    </td>
+ </tr>
+</tbody>
+</table>    
+  
+  </body>
+
+</html>
